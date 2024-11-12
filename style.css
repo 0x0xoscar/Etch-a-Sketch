@@ -26,3 +26,7 @@ main {
   background-color: lightgray;
   border: none;
 }
+
+.ereaseButton {
+  margin-top: 20px;
+}

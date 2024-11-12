@@ -1,7 +1,10 @@
 const container = document.querySelector(".container");
+const ereaseButton = document.querySelector(".ereaseButton");
+const colorPicker = document.querySelector(".colorPicker");
 const SIZE = 16;
 const containerWidth = 500;
 const containerHeight = 500;
+let color = "#FF0000";
 
 function addColumnsAndRows() {
     const columnWidth = containerWidth / SIZE;
@@ -26,19 +29,39 @@ function addColumnsAndRows() {
 }
 
 addColumnsAndRows();
-const rows = document.querySelectorAll(".rows");
+const rows = document.querySelectorAll(".row");
 const rowsArr = Array.from(rows);
 const cols = document.querySelectorAll(".column")
 const columnArr = Array.from(cols)
 
 rowsArr.forEach((element) => {
     element.addEventListener("mouseover", (e) => {
-        e.target.style.backgroundColor = "red";
+        e.target.style.backgroundColor = color;
     })
 });
 
 columnArr.forEach((element) => {
     element.addEventListener("mouseover", (e) => {
-        e.target.style.backgroundColor = "red";
+        e.target.style.backgroundColor = color;
     })
 });
+
+
+function erease() {
+
+    rowsArr.forEach((element) => {
+        element.style.backgroundColor = "lightgray";
+    })
+
+    columnArr.forEach((element) => {
+        element.style.backgroundColor = "lightgray";
+    })
+
+}
+
+ereaseButton.addEventListener("click", erease);
+
+colorPicker.addEventListener("input", () => {
+    console.log(colorPicker.value);
+    color = colorPicker.value;
+})
